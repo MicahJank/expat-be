@@ -19,7 +19,7 @@ router.get('/byId/:id', (req, res) => {
         })
 })
 
-router.post('/new', authenticate, (req, res) => {
+router.post('/new', (req, res) => {
     const { sName, sContent, user, sCountry, sImageUrl } = req.body;
     db.newStory({ sName, sContent, user, sCountry, sImageUrl })
         .then(count => {
@@ -44,7 +44,7 @@ router.post('/new', authenticate, (req, res) => {
 //         });
 // });
 
-router.put('/update/:id', authenticate, (req, res) => {
+router.put('/update/:id', (req, res) => {
     const { id } = req.params;
     const changes = req.body;
     db.update(id, changes)
@@ -59,7 +59,7 @@ router.put('/update/:id', authenticate, (req, res) => {
         });
 });
 
-router.delete('/delete/:id', authenticate, (req, res) => {
+router.delete('/delete/:id', (req, res) => {
     const { id } = req.params;
     db.remove(id)
         .then(count => {
