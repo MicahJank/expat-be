@@ -1,21 +1,18 @@
-
 const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
-const apiRoute = require('../routes/api/index.js');
+const apiRouter = require('./apiHandler.js');
 const server = express();
 
-server.use(express.json());
-server.use(helmet());
-server.use(cors());
+const configureMiddleware = require('./configureMiddleware.js');
 
+// middleware is being taken care of in the configureMiddleware.js file
+configureMiddleware(server)
 
 server.get('/', (req, res) => {
     res.send(`
-    <h1>Working...</h1>
+    <h1>Expat Journal Server is up and Running</h1>
     `);
 });
 
-server.use('/api', apiRoute);
+server.use('/api', apiRouter);
 
 module.exports = server;
