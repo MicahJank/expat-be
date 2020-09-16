@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/expat-journal-lambda/expatJournal-BE#readme",
   "devDependencies": {
+    "morgan": "^1.10.0",
     "nodemon": "^1.19.1"
   },
   "dependencies": {
