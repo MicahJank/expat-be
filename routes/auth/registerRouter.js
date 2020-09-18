@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const genToken = require('../../utils/genToken.js');
+const verifyBody = require('./verifyBody.js');
 
 const Users = require('../../models/Users.js');
 
 // /api/register
-router.post('/', (req, res) => {
+router.post('/', verifyBody, (req, res) => {
     const { password } = req.body;
 
     const hash = bcrypt.hashSync(password, 6);
