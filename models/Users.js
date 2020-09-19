@@ -13,6 +13,10 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    // array of story ids
+    saved_stories: {
+        type: Array
     }
 })
 
