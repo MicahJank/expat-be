@@ -11,7 +11,7 @@ const StorySchema = mongoose.Schema({
     },
     user_id: {
         type: String,
-        require: true
+        required: true
     },
     created: {
         type: Date,
@@ -20,10 +20,6 @@ const StorySchema = mongoose.Schema({
     photo: {
         type: String
     },
-    // will be an array of comment ids
-    comments: {
-        type: Array
-    }
 });
 
 module.exports = mongoose.model("Stories", StorySchema);
