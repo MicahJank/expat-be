@@ -9,8 +9,13 @@ const StorySchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    user_id: {
-        type: String,
+    user: {
+        user_id: String,
+        username: String,
+        profile_pic: {
+            data: Buffer,
+            contentType: String
+        },
         required: true
     },
     created: {
@@ -18,7 +23,8 @@ const StorySchema = mongoose.Schema({
         default: Date.now()
     },
     photo: {
-        type: String
+        data: Buffer,
+        contentType: String
     },
 });
 
